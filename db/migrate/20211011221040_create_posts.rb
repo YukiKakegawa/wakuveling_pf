@@ -6,7 +6,7 @@ class CreatePosts < ActiveRecord::Migration[5.2]
     t.references :tourist_spot, null: false
     t.string :title, null: false
     t.string :body, null: false
-    t.string :image, null: false
+    t.string :image_id, null: false
     t.datetime :created_at, null: false
     t.datetime :updated_at, null: false
 

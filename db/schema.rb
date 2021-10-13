@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_11_221608) do
+ActiveRecord::Schema.define(version: 2021_10_13_120044) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer "post_id", null: false
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2021_10_11_221608) do
     t.integer "tourist_spot_id", null: false
     t.string "title", null: false
     t.string "body", null: false
-    t.string "image", null: false
+    t.string "image_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["tourist_spot_id"], name: "index_posts_on_tourist_spot_id"
@@ -63,15 +63,21 @@ ActiveRecord::Schema.define(version: 2021_10_11_221608) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "email", null: false
-    t.string "encrypted_password", null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
     t.string "name", null: false
-    t.string "profile_image", null: false
+    t.string "profile_image_id", null: false
     t.string "birthplace", null: false
+    t.string "introduction", null: false
     t.string "telephone_number", null: false
     t.boolean "is_active", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end
