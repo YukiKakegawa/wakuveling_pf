@@ -1,0 +1,20 @@
+<h2>新規投稿ページ</h2>
+  <%= form_with model: @posts,  local:true do |f| %>
+
+  <div class="form-group row">
+    <%= f.label :title, "タイトル", class: "col-sm-3" %><%= f.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="form-group row">
+    <%= f.label :body, "説明", class: "col-sm-3" %><%= f.text_field :body, class: "form-control" %>
+  </div>
+
+  <div class="form-group row">
+    <%= f.label :image, "写真", class: "col-sm-3" %><%= f.attachment_field :image, class: "form-control" %>
+  </div>
+
+  <div class="form-group row">
+    <%= f.submit "新規投稿", class: "btn btn-success" %>
+  </div>
+
+<% end %>
