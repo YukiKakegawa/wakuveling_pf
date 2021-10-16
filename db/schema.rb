@@ -42,24 +42,14 @@ ActiveRecord::Schema.define(version: 2021_10_13_120044) do
 
   create_table "posts", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "tourist_spot_id", null: false
-    t.string "title", null: false
+    t.string "tourist_spot", null: false
+    t.string "prefecture", null: false
+    t.string "address", null: false
     t.string "body", null: false
     t.string "image_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["tourist_spot_id"], name: "index_posts_on_tourist_spot_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
-  end
-
-  create_table "tourist_spots", force: :cascade do |t|
-    t.integer "post_id", null: false
-    t.string "prefecture", null: false
-    t.string "address", null: false
-    t.float "map", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["post_id"], name: "index_tourist_spots_on_post_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,5 +1,5 @@
 <h2>新規投稿ページ</h2>
-  <%= form_with model: @posts,  local:true do |f| %>
+  <%= form_with model: @post,  local:true do |f| %>
 
   <div class="form-group row">
     <%= f.label :image, "写真", class: "col-sm-3" %><%= f.attachment_field :image, class: "form-control" %>
