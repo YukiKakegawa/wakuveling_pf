@@ -1,0 +1,29 @@
+<h2>投稿詳細</h2>
+
+<div class="container">
+  <div class="form-group row">
+    <%= attachment_image_tag @post, image, :fill,100 ,100, format: "jpeg" %>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-3">
+      タイトル
+    </div>
+    <div>
+      <%= @post.title %>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-3">
+      内容
+    </div>
+    <div>
+      <%= @post.body %>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-3">
+      <%= link_to "編集", edit_post_path(post), class: "btn btn-success" %>
+      <%= link_to "削除", post_path(post), method: :delete, class: "btn btn-btn-success" %>
+    </div>
+  </div>
+</div>
