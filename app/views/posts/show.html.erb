@@ -6,10 +6,26 @@
   </div>
   <div class="form-group row">
     <div class="col-sm-3">
-      タイトル
+      観光地
     </div>
     <div>
-      <%= @post.title %>
+      <%= @post.tourist_spot %>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-3">
+      都道府県
+    </div>
+    <div>
+      <%= @post.prefecture %>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-3">
+      住所
+    </div>
+    <div>
+      <%= @post.address %>
     </div>
   </div>
   <div class="form-group row">
@@ -20,6 +36,7 @@
       <%= @post.body %>
     </div>
   </div>
+
   <div class="form-group row">
     <div class="col-sm-3">
       <%= link_to "編集", edit_post_path(post), class: "btn btn-success" %>

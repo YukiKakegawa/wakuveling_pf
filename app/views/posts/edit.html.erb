@@ -6,8 +6,16 @@
       <%= f.attachment_field :image, class: "form-control" %>
     </div>
     <div class="form-group row">
-      <%= f.label :title, "タイトル", class: "col-sm-3 col-form-label" %>
-      <%= f.text_field :title, class: "form-control col-sm-3" %>
+      <%= f.label :tourist_spot, "観光地", class: "col-sm-3 col-form-label" %>
+      <%= f.text_field :tourist_spot, class: "form-control col-sm-3" %>
+    </div>
+    <div class="form-group row">
+      <%= f.label :prefecture, "都道府県", class: "col-sm-3 col-form-label" %>
+      <%= f.text_field :prefecture, class: "form-control col-sm-3" %>
+    </div>
+    <div class="form-group row">
+      <%= f.label :address, "住所", class: "col-sm-3 col-form-label" %>
+      <%= f.text_field :address, class: "form-control col-sm-3" %>
     </div>
     <div class="form-group row">
       <%= f.label :body, "内容", class: "col-sm-3 col-form-label" %>
