@@ -16,11 +16,18 @@ class PostsController < ApplicationController
   end
 
   def show
-    @posts = Post.find(params[:id])
+    @post = Post.find(params[:id])
+    @post_comment = PostComment.new
+    # @post_comments = @post.post_comments.all
+  end
+  
+  def update
   end
 
   def destroy
   end
+  
+  private
 
   def post_params
     params.require(:post).permit(:image, :tourist_spot, :prefecture, :address, :body)
