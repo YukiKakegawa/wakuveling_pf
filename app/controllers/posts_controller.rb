@@ -20,13 +20,16 @@ class PostsController < ApplicationController
     @post_comment = PostComment.new
     # @post_comments = @post.post_comments.all
   end
-  
+
   def update
   end
 
   def destroy
+    post = Post.find(params[:id])
+    post.destroy
+    redirect_to posts_path
   end
-  
+
   private
 
   def post_params
