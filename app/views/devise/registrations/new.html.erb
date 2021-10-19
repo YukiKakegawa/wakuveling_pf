@@ -9,7 +9,7 @@
    </div>
 
    <div class="field row">
-     <%= f.label :birthplace, "出身地", class: "col-sm-3" %><%= f.text_field :birthplace, class: "col-sm-3", autofocus: true, autocomplete: "birthplace" %>
+     <%= f.label :birthplace, "出身地", class: "col-sm-3" %><%= f.select :birthplace, User.birthplaces.keys,{}, class: "col-sm-3", autofocus: true, autocomplete: "birthplace" %>
    </div>
 
    <div class="field row">
