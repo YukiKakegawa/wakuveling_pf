@@ -23,6 +23,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post_comment = PostComment.new
     # @post_comments = @post.post_comments.all
+    # @posts = Post.all
   end
 
   def update

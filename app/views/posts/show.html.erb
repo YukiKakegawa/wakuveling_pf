@@ -37,6 +37,15 @@
     </div>
   </div>
 
+
+  <%# @posts.reverse_each do |post| %>
+    <div id "post_<%= @post.id %>">
+      <%= render 'post', post: @post%>
+    </div>
+  <%# end %>
+
+
+
   <div class="form-group row">
     <div class="col-sm-3">
       <%= link_to "編集", edit_post_path(@post), class: "btn btn-success" %>
