@@ -12,6 +12,7 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
 
   has_many :favorites_posts, through: :favorites, source: :post
+  has_many :gooded_posts, through: :goods, source: :post
 
   def favorite_find(post_id)
     favorites.where(post_id: post_id).exists?
