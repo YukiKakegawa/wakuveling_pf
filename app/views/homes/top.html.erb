@@ -7,7 +7,7 @@ Home
       投稿
     </div>
     <div class="col-sm-3">
-      ランキング
+      <p>ランキング</p>
       <% @posts.each do |post| %>
       <%= link_to post_path(post) do %>
       <%= attachment_image_tag post, :image, :fill, 100, 100, format: 'jpeg' %>

@@ -43,12 +43,14 @@ ActiveRecord::Schema.define(version: 2021_10_13_120044) do
   create_table "posts", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "tourist_spot", null: false
-    t.string "prefecture", null: false
+    t.integer "prefecture", null: false
     t.string "address", null: false
     t.string "body", null: false
     t.string "image_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude", null: false
+    t.float "longitude", null: false
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
@@ -57,7 +59,7 @@ ActiveRecord::Schema.define(version: 2021_10_13_120044) do
     t.string "encrypted_password", default: "", null: false
     t.string "name", null: false
     t.string "profile_image_id"
-    t.string "birthplace", null: false
+    t.integer "birthplace", null: false
     t.string "introduction"
     t.string "telephone_number", null: false
     t.boolean "is_active", default: true, null: false

@@ -4,12 +4,15 @@ class CreatePosts < ActiveRecord::Migration[5.2]
 
     t.references :user, null: false
     t.string :tourist_spot, null: false
-    t.string :prefecture, null: false
+    t.integer :prefecture, null: false
     t.string :address, null: false
     t.string :body, null: false
     t.string :image_id, null: false
     t.datetime :created_at, null: false
     t.datetime :updated_at, null: false
+
+    t.float :latitude, null: false
+    t.float :longitude, null: false
 
       t.timestamps
     end

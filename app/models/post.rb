@@ -25,5 +25,9 @@ class Post < ApplicationRecord
   def gooded_by?(user)
     goods.where(user_id: user_id).exists?
   end
+  
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
+  
 
 end
