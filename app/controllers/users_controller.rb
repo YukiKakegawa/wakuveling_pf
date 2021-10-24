@@ -2,9 +2,9 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
-
     favorites = Favorite.where(user_id: current_user.id).pluck(:post_id)
     @favorite_list = Post.find(favorites)
+    @posts = current_user.posts
   end
 
   def edit

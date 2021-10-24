@@ -33,5 +33,33 @@
         <%= link_to "プロフィールを編集", edit_user_path(@user), class: "btn btn-success" %>
       </div>
     </div>
-
   </div>
+
+
+ <div class="row">
+   <% @posts.each do |post| %>
+     <div class="col-sm-4">
+       <div class="card">
+         <%= link_to post_path(post) do %>
+         <div class="card-img">
+          <%= attachment_image_tag post, :image, :fill, 100, 100, format: 'jpeg' %>
+         </div>
+         <div class="card-body">
+          <div>
+            <%= post.tourist_spot %>
+          </div>
+          <div>
+            <%= post.prefecture %>
+          </div>
+          <div>
+            <%= post.address %>
+          </div>
+          <div>
+            <%= post.body %>
+          </div>
+         </div>
+         <% end %>
+       </div>
+     </div>
+     <% end %>
+ </div>
