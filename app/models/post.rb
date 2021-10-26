@@ -6,11 +6,11 @@ class Post < ApplicationRecord
   has_many :post_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :goods, dependent: :destroy
-  
+
   has_many :gooded_users, through: :goods, source: :user
-  
+
   enum prefecture: {
-    "---":0,
+    "都道府県":0,
      北海道:1,青森県:2,岩手県:3,宮城県:4,秋田県:5,山形県:6,福島県:7,
      茨城県:8,栃木県:9,群馬県:10,埼玉県:11,千葉県:12,東京都:13,神奈川県:14,
      新潟県:15,富山県:16,石川県:17,福井県:18,山梨県:19,長野県:20,
@@ -25,9 +25,9 @@ class Post < ApplicationRecord
   def gooded_by?(user)
     goods.where(user_id: user_id).exists?
   end
-  
+
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
-  
+
 
 end
