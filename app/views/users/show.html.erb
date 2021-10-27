@@ -36,15 +36,17 @@
   </div>
 
 
- <div class="row">
-   <% @posts.each do |post| %>
-     <div class="col-sm-4">
-       <div class="card">
+
+ <div class="container-post">
+   <section class="row d-flex mb-4">
+     <% @posts.each do |post| %>
+     <a href=”#” class=”col-md-3 col-sm-8 p-0 m-auto text-decoration-none btn-outline-dark”>
+              <div class="card">
          <%= link_to post_path(post) do %>
          <div class="card-img">
           <%= attachment_image_tag post, :image, :fill, 100, 100, format: 'jpeg' %>
          </div>
-         <div class="card-body">
+         <div class="card-body-post">
           <div>
             <%= post.tourist_spot %>
           </div>
@@ -60,6 +62,7 @@
          </div>
          <% end %>
        </div>
-     </div>
+     </a>
      <% end %>
+   </section>
  </div>

@@ -23,7 +23,7 @@
               <div class="input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text">
-
+                    <i class="fas fa-house-user"></i>
                   </span>
                 </div>
 
@@ -31,16 +31,16 @@
               </div>
             </div>
 
-            <div class="form-group">
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">
-                    <i class="fas fa-phone"></i>
-                  </span>
-                </div>
-                <%= f.text_field :telephone_number, class: "form-control", placeholder: "電話番号", autofocus: true %>
-              </div>
-            </div>
+            <!--<div class="form-group">-->
+            <!--  <div class="input-group">-->
+            <!--    <div class="input-group-prepend">-->
+            <!--      <span class="input-group-text">-->
+            <!--        <i class="fas fa-phone"></i>-->
+            <!--      </span>-->
+            <!--    </div>-->
+            <!--    <%#= f.text_field :telephone_number, class: "form-control", placeholder: "電話番号", autofocus: true %>-->
+            <!--  </div>-->
+            <!--</div>-->
 
             <div class="form-group">
               <div class="input-group">
@@ -57,7 +57,7 @@
               <div class="input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text">
-                    <i class="fa-solid fa-key"></i>
+                    <i class="fas fa-key"></i>
                   </span>
                 </div>
                 <%= f.password_field :password, class: "form-control", placeholder: "パスワード（６文字以上）", autofocus: true %>
@@ -68,7 +68,7 @@
               <div class="input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text">
-                    <i class="fa-solid fa-key"></i>
+                    <i class="fas fa-key"></i>
                   </span>
                 </div>
                 <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "パスワード（確認）" %>
@@ -88,7 +88,8 @@
   .bg-image {
     background-image: url("<%= asset_path('sea-top.jpg') %>");
     background-size: cover;
+    background-position: bottom;
     width: 100%;
-    min-height: 100vh;
+    height: 850px;
   }
 </style>

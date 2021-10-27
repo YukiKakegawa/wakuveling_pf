@@ -1,28 +1,72 @@
-<h2>新規投稿ページ</h2>
-  <%= form_with model: @post,  local:true do |f| %>
 
-  <div class="form-group row">
-    <%= f.label :image, "写真", class: "col-sm-3" %><%= f.attachment_field :image, class: "form-control" %>
+
+<%= form_with model: @post, local:true do |f| %>
+  <div class="container">
+    <div class="card-container">
+      <div class="card-body">
+        <h3 class="text-center">新規投稿</h3>
+        <hr>
+
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="fas fa-camera"></i>
+              </span>
+            </div>
+            <%= f.attachment_field :image, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="fas fa-flag"></i>
+              </span>
+            </div>
+            <%= f.text_field :tourist_spot, class: "form-control", placeholder: "観光地", autofocus: true %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="fas fa-plane"></i>
+              </span>
+            </div>
+            <%= f.select :prefecture, Post.prefectures.keys,{}, class: "form-control", placeholder: 0, autofocus: true %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="fas fa-map-marker-alt"></i>
+              </span>
+            </div>
+            <%= f.text_field :address, class: "form-control", placeholder: "住所", autofocus: true %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="fas fa-pen-nib"></i>
+              </span>
+            </div>
+            <%= f.text_field :body, class: "form-control", placeholder: "投稿内容" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.submit "投稿", class: "btn btn-success btn-block" %>
+        </div>
+
+      </div>
+    </div>
   </div>
-
-  <div class="form-group row">
-    <%= f.label :tourist_spot, "観光地", class: "col-sm-3" %><%= f.text_field :tourist_spot, class: "form-control" %>
-  </div>
-
-  <div class="form-group row">
-    <%= f.label :prefecture, "都道府県", class: "col-sm-3" %><%= f.select :prefecture, Post.prefectures.keys,{} %>
-  </div>
-
-  <div class="form-group row">
-    <%= f.label :address, "住所", class: "col-sm-3" %><%= f.text_field :address, class: "form-control" %>
-  </div>
-
-  <div class="form-group row">
-    <%= f.label :body, "内容", class: "col-sm-3" %><%= f.text_field :body, class: "form-control" %>
-  </div>
-
-  <div class="form-group row">
-    <%= f.submit "新規投稿", class: "btn btn-success" %>
-  </div>
-
-<% end %>
+  <% end %>

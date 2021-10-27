@@ -21,7 +21,7 @@
            <div class="input-group">
              <div class="input-group-prepend">
                <span class="input-group-text">
-                <i class="fa-solid fa-key"></i>
+                <i class="fas fa-key"></i>
                </span>
              </div>
              <%= f.password_field :password, class: "form-control", placeholder: "パスワード", autofocus: true %>
@@ -36,3 +36,13 @@
    </div>
  </div>
 <% end %>
+
+<style>
+  .bg-image {
+    background-image: url("<%= asset_path('sea-top.jpg') %>");
+    background-size: cover;
+    background-position: bottom;
+    width: 100%;
+    height: 800px;
+  }
+</style>
