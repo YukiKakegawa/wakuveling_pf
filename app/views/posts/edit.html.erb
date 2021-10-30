@@ -27,3 +27,71 @@
   <% end %>
   </div>
 
+
+<%= form_with model: @post, url: post_path(@post.id), local: true do |f| %>
+  <div class="container">
+    <div class="card-container">
+      <div calss="card-body">
+        <h3 class="text-center">投稿編集</h3>
+        <hr>
+
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-text">
+              <span class="input-group-text">
+                <i class="fas fa-camera"></i>
+              </span>
+            </div>
+            <%= f.attachment_field :image %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-text">
+              <span class="input-group-text">
+                <i class="fas fa-flag"></i>
+              </span>
+            </div>
+            <%= f.text_field :tourist_spot, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-text">
+              <span class="input-group-text">
+                <i class="fas fa-plane"></i>
+              </span>
+            </div>
+            <%= f.text_field :tourist_spot, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-text">
+              <span class="input-group-text">
+                <i class="fas fa-map-marker-alt"></i>
+              </span>
+            </div>
+            <%= f.text_field :tourist_spot, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-text">
+              <span class="input-group-text">
+                <i class="fas fa-pen-nib"></i>
+              </span>
+            </div>
+            <%= f.text_field :tourist_spot, class: "form-control" %>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+  <% end %>

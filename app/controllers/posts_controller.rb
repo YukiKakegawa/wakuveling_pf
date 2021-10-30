@@ -12,7 +12,8 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = current_user.posts
+    # @posts = current_user.posts
+    @posts  = Post.includes(:gooded_users).sort {|a,b| b.gooded_users.size <=> a.gooded_users.size}
   end
 
   def edit
