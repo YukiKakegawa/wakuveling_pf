@@ -1,33 +1,3 @@
-<h2>投稿編集ページ</h2>
-  <div><%= form_with model: @post, url: post_path(@post.id), local: true do |f| %>
-
-    <div class="form-group row">
-      <%= f.label :image, "写真", class: "col-sm-3 col-form-label" %>
-      <%= f.attachment_field :image, class: "form-control" %>
-    </div>
-    <div class="form-group row">
-      <%= f.label :tourist_spot, "観光地", class: "col-sm-3 col-form-label" %>
-      <%= f.text_field :tourist_spot, class: "form-control col-sm-3" %>
-    </div>
-    <div class="form-group row">
-      <%= f.label :prefecture, "都道府県", class: "col-sm-3 col-form-label" %>
-      <%= f.select :prefecture, Post.prefectures.keys,{} %>
-    </div>
-    <div class="form-group row">
-      <%= f.label :address, "住所", class: "col-sm-3 col-form-label" %>
-      <%= f.text_field :address, class: "form-control col-sm-3" %>
-    </div>
-    <div class="form-group row">
-      <%= f.label :body, "内容", class: "col-sm-3 col-form-label" %>
-      <%= f.text_field :body, class: "col-sm-3 col-form-label" %>
-    </div>
-    <div class="form-group row">
-      <%= f.submit "完了", class: "btn btn-success" %>
-    </div>
-  <% end %>
-  </div>
-
-
 <%= form_with model: @post, url: post_path(@post.id), local: true do |f| %>
   <div class="container">
     <div class="card-container">
@@ -37,7 +7,7 @@
 
         <div class="form-group">
           <div class="input-group">
-            <div class="input-group-text">
+            <div class="input-group-prepend">
               <span class="input-group-text">
                 <i class="fas fa-camera"></i>
               </span>
@@ -48,7 +18,7 @@
 
         <div class="form-group">
           <div class="input-group">
-            <div class="input-group-text">
+            <div class="input-group-prepend">
               <span class="input-group-text">
                 <i class="fas fa-flag"></i>
               </span>
@@ -59,37 +29,40 @@
 
         <div class="form-group">
           <div class="input-group">
-            <div class="input-group-text">
+            <div class="input-group-prepend">
               <span class="input-group-text">
                 <i class="fas fa-plane"></i>
               </span>
             </div>
-            <%= f.text_field :tourist_spot, class: "form-control" %>
+            <%= f.select :prefecture, Post.prefectures.keys,{}, class: "form-control" %>
           </div>
         </div>
 
         <div class="form-group">
           <div class="input-group">
-            <div class="input-group-text">
+            <div class="input-group-prepend">
               <span class="input-group-text">
                 <i class="fas fa-map-marker-alt"></i>
               </span>
             </div>
-            <%= f.text_field :tourist_spot, class: "form-control" %>
+            <%= f.text_field :address, class: "form-control" %>
           </div>
         </div>
 
         <div class="form-group">
           <div class="input-group">
-            <div class="input-group-text">
+            <div class="input-group-prepend">
               <span class="input-group-text">
                 <i class="fas fa-pen-nib"></i>
               </span>
             </div>
-            <%= f.text_field :tourist_spot, class: "form-control" %>
+            <%= f.text_field :body, class: "form-control" %>
           </div>
         </div>
 
+         <div class="form-group">
+           <%= f.submit "完了", class: "btn btn-success btn-block" %>
+         </div>
 
       </div>
     </div>

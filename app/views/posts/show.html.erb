@@ -1,166 +1,189 @@
-<h2>投稿詳細</h2>
-
 <div class="container">
-  <div class="form-group row">
-    <%= attachment_image_tag @post, :image, size: "600x350", format: "jpeg" %>
-  </div>
-  <div class="form-group row">
-    <div class="col-sm-3">
-      観光地
-    </div>
-    <div>
-      <%= @post.tourist_spot %>
-    </div>
-  </div>
-  <div class="form-group row">
-    <div class="col-sm-3">
-      都道府県
-    </div>
-    <div>
-      <%= @post.prefecture %>
-    </div>
-  </div>
-  <div class="form-group row">
-    <div class="col-sm-3">
-      住所
-    </div>
-    <div>
-      <%= @post.address %>
-    </div>
-  </div>
-  <div class="form-group row">
-    <div class="col-sm-3">
-      内容
-    </div>
-    <div>
-      <%= @post.body %>
-    </div>
-  </div>
-
-
-  <%# @posts.reverse_each do |post| %>
-    <div id="post_<%= @post.id %>">
-      <%= render 'post', post: @post%>
-    </div>
-  <%# end %>
-
-
-
-  <div class="form-group row">
-    <div class="col-sm-3">
-      <i class="fas fa-edit"></i>
-      <%= link_to "編集", edit_post_path(@post), class: "btn btn-success" %>
-      <i class="fas fa-trash-alt"></i>
-      <%= link_to "削除", post_path(@post), method: :delete, class: "btn btn-success" %>
-    </div>
-  </div>
-  <div>
-    <% if @post.gooded_by?(current_user) %>
-      <%= link_to post_goods_path(@post), method: :delete do %>
-      ♥<%= @post.goods.count %>いいね
-      <% end %>
-    <% else %>
-      <%= link_to post_goods_path(@post), method: :post do %>
-      ♡<%= @post.goods.count %>いいね
-      <% end %>
-    <% end %>
-  </div>
-
-  <div class="form-group row">
-    <div class="col-sm-7">
-       <% @post.post_comments.each do |post_comment| %>
-        <div>
-            <!-- <%#= profile_image_tag %> -->
-            <%= post_comment.user.name %>
-            <%= post_comment.comment %>
+  <div class="card-container">
+    <div class="card-body">
+      <div class="form-group">
+        <div class="input-group flex-row mb-2">
+          <%= attachment_image_tag @post, :image, format: "jpeg", size: "600x350" %>
         </div>
-      <% end %>
 
-      <div>
-        <%= form_with(model:[@post, @post_comment],local: true) do |f| %>
-          <%= f.text_field :comment, placeholder: "コメント追加" %>
-          <%= f.submit "送信", class: "btn btn-success" %>
-        <% end %>
+
+        <div class="d-flex justify-content-around">
+          <h3 class="card-title"><%= @post.tourist_spot %></h3>
+
+        <!--<div class="form-group row">-->
+    <!--<div class="col-sm-3">-->
+
+            <% if @post.gooded_by?(current_user) %>
+            <%= link_to post_goods_path(@post), method: :delete do %>
+              <i class="fas fa-thumbs-up"></i>
+            <%= @post.goods.count %>いいね
+            <% end %>
+          <% else %>
+            <%= link_to post_goods_path(@post), method: :post do %>
+            <i class="far fa-thumbs-up"></i>
+            <%= @post.goods.count %>いいね
+            <% end %>
+          <% end %>
+          <!--</div>-->
+        <!--</div>-->
+            <div id="post_<%= @post.id %>">
+            <%= render 'post', post: @post%>
+          </div>
+
+            <%= link_to edit_post_path(@post), class: "btn" do %>
+              <i class="fas fa-edit"></i>
+            <% end %>
+
+            <%= link_to post_path(@post), method: :delete, class: "btn" do %>
+             <i class="fas fa-trash-alt"></i>
+            <% end %>
+
+        </div>
+        <div class="card-text">
+          <%= @post.prefecture %></br>
+          <%= @post.address %></br>
+          <%= @post.body %>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-sm-7">
+             <% @post.post_comments.each do |post_comment| %>
+              <div>
+                  <!-- <%#= profile_image_tag %> -->
+                  <%= post_comment.user.name %>
+                  <%= post_comment.comment %>
+              </div>
+            <% end %>
+
+            <div>
+              <%= form_with(model:[@post, @post_comment],local: true) do |f| %>
+                <%= f.text_field :comment, placeholder: "コメント追加" %>
+                <%= f.submit "送信", class: "btn btn-success" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
       </div>
+
+        <div id="map"></div>
+        <style>
+        #map{
+          height: 200px;
+          width:100%;
+        }
+        </style>
+
+        <script type="text/javascript">
+          function initMap() {
+
+              var test ={lat: <%= @post.latitude %>, lng: <%= @post.longitude %>};
+              var map = new google.maps.Map(document.getElementById('map'), {
+                  zoom: 15,
+                  center: test
+              });
+
+            var contentString = '住所：<%= @post.address %>';
+              var infowindow = new google.maps.InfoWindow({
+                  content: contentString
+              });
+
+              var marker = new google.maps.Marker({
+                  position:test,
+                  map: map,
+                  title: contentString
+              });
+
+              marker.addListener('click', function() {
+                  infowindow.open(map, marker);
+              });
+          }
+      </script>
+
+      <script async defer
+        src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap">
+      </script>
+
     </div>
   </div>
 </div>
 
 
-<p>住所</p>
-<div id="map"></div>
-<style>
-#map{
-  height: 500px;
-  width:500px;
-}
-</style>
 
-<script type="text/javascript">
-    function initMap() {
+ <!-- <div class="container-post">-->
+ <!--  <section class="row d-flex justify-content-center">-->
+ <!--    <div class="col-8">-->
+ <!--     <div class="card">-->
+ <!--       <div class="card-body-post">-->
+ <!--         <div class=" text-center">-->
+ <!--           <div class="row">-->
+ <!--             <div class="col-8">-->
+ <!--               <%= attachment_image_tag @post, :image, format: "jpeg", class: "card-image-post" %>-->
+ <!--               </div>-->
 
-        var test ={lat: <%= @post.latitude %>, lng: <%= @post.longitude %>};
-        var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 15,
-            center: test
-        });
+ <!--             <div class="col-4">-->
 
-      var contentString = '住所：<%= @post.address %>';
-        var infowindow = new google.maps.InfoWindow({
-            content: contentString
-        });
+ <!--                <h3 class="card-title text-left">-->
+ <!--                 <%= @post.tourist_spot %>-->
+ <!--               </h3>-->
+ <!--                <div class="card-text text-left">-->
+ <!--                  <%= @post.prefecture %></br>-->
+ <!--                  <%= @post.address %></br>-->
+ <!--                  <%= @post.body %>-->
+ <!--                </div>-->
+ <!--               </div>-->
+ <!--             </div>-->
+ <!--           </div>-->
+ <!--         </div>-->
+ <!--       </div>-->
+ <!--     </div>-->
+ <!--   </div>-->
+ <!--  </section>-->
+ <!--</div>-->
 
-        var marker = new google.maps.Marker({
-            position:test,
-            map: map,
-            title: contentString
-        });
+<!--  <p>マップ</p>-->
+<!--<div id="map2"></div>-->
+<!--<style>-->
+<!--#map2{-->
+<!--  height: 200px;-->
+<!--  width:500px;-->
+<!--  text_field: center;-->
 
-        marker.addListener('click', function() {
-            infowindow.open(map, marker);
-        });
-    }
-</script>
+<!--}-->
+<!--</style>-->
 
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap">
-</script>
+<!--<script type="text/javascript">-->
+<!--    function initMap_() {-->
+
+<!--        var test ={lat: <%= @post.latitude %>, lng: <%= @post.longitude %>};-->
+<!--        var map = new google.maps.Map(document.getElementById('map2'), {-->
+<!--            zoom: 15,-->
+<!--            center: test-->
+<!--        });-->
+
+<!--      var contentString = '住所：<%= @post.address %>';-->
+<!--        var infowindow = new google.maps.InfoWindow({-->
+<!--            content: contentString-->
+<!--        });-->
+
+<!--        var marker = new google.maps.Marker({-->
+<!--            position:test,-->
+<!--            map: map,-->
+<!--            title: contentString-->
+<!--        });-->
+
+<!--        marker.addListener('click', function() {-->
+<!--            infowindow.open(map, marker);-->
+<!--        });-->
+<!--    }-->
+
+<!--    function initMaps(){-->
+<!--      initMap()-->
+<!--      initMap_()-->
+<!--    }-->
+
+<!--</script>-->
 
 
-<div class="container">
-    <div class="card-container">
-      <div class="card-body">
-
-        <div class="form-group">
-          <div class="input-group flex-row">
-             <%= attachment_image_tag @post, :image, size: "600x350", format: "jpeg" %>
-             <h5 class="card-title"><%= @post.tourist_spot %></h5>
-             <div class="card-text"><%= @post.prefecture %></div>
-          </div>
-
-        </div>
-        </div>
-        </div>
-
-  <div class="container-post mt-5">
-   <section class="row d-flex justify-content-center mx-1 mb-4">
-
-        <div class="col-sm-4 mb-4">
-          <div class="card">
-            <div class="card-body-post">
-              <div class="card-image text-center mb-2">
-                <%= attachment_image_tag @post, :image, size: "600x350", format: "jpeg" %>
-                                  <h5 class="card-title"><%= @post.tourist_spot %></h5>
-                  <div class="card-text"><%= @post.prefecture %></div>
-              </div>
-                <div class="d-flex justify-content-around">
-           
-                    <%= link_to "詳細", post_path(@post), class:"btn btn-secondary"  %>
-                </div>
-
-            </div>
-          </div>
-        </div>
-
-   </section>
- </div>
+<!--<script async defer-->
+<!--        src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMaps">-->
+<!--</script>-->

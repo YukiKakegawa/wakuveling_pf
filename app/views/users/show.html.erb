@@ -4,8 +4,9 @@
       <div class="col-sm-5 text-right">
         <%= attachment_image_tag @user, :profile_image, size: "150x150", format: "jpeg", fallback: "no_image.jpg" %>
           <div>
+            <%= link_to edit_user_path(@user), class: "btn btn-outline-secondary" do %>
             <i class="fas fa-user-edit"></i>
-            <%= link_to  "プロフィール編集", edit_user_path(@user), class: "btn btn-success" %>
+            <% end %>
           </div>
       </div>
       <div class="col-sm-5">
@@ -22,21 +23,20 @@
     </div>
   </div>
 
- <div class="container-post mt-5">
-   <section class="row d-flex justify-content-center mx-1 mb-4">
+ <div class="container-post mt-2">
+   <section class="row d-flex mx-1 ">
      <% @posts.each do |post| %>
         <div class="col-sm-4 mb-4">
           <div class="card">
             <div class="card-body-post">
               <div class="card-image text-center mb-2">
-                <%= attachment_image_tag post, :image, size: "400x250", format: 'jpeg' %>
+                <%= attachment_image_tag post, :image, size: "445x300", format: 'jpeg' %>
               </div>
                 <div class="d-flex justify-content-around">
-                  <h5 class="card-title"><%= post.tourist_spot %></h5>
+                  <h5 class="card-title "><%= post.tourist_spot %></h5>
                   <div class="card-text"><%= post.prefecture %></div>
-                    <%= link_to "詳細", post_path(post), class:"btn btn-secondary"  %>
+                    <%= link_to "詳細", post_path(post), class:"btn btn-secondary mb-1"  %>
                 </div>
-
             </div>
           </div>
         </div>
