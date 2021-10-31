@@ -17,30 +17,30 @@
 
           <% if user_signed_in? %>
             <li class="nav-item">
-              <%= link_to "ホーム", root_path, class: "btn btn-light ml-3" %>
+              <%= link_to "TOP", root_path, class: "btn ml-3" %>
             </li>
             <li class="nav-item">
-              <%= link_to "マイページ", user_path(current_user), class: "btn btn-light ml-3" %>
+              <%= link_to "マイページ", user_path(current_user), class: "btn ml-3" %>
             </li>
             <li class="nav-item">
-              <%= link_to "新規投稿", new_post_path, class: "btn btn-light ml-3" %>
+              <%= link_to "新規投稿", new_post_path, class: "btn ml-3" %>
             </li>
             <li class="nav-item">
-              <%= link_to "投稿一覧", posts_path, class: "btn btn-light ml-3" %>
+              <%= link_to "投稿一覧", posts_path, class: "btn ml-3" %>
             </li>
             <li>
-              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-light ml-3" %>
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn ml-3" %>
             </li>
           <% else %>
             <li class="nav-item">
-              <%= link_to "Home", root_path, class: "btn btn-light ml-3" %>
-      
+              <%= link_to "TOP", root_path, class: "btn ml-3" %>
+
             </li>
             <li class="nav-item">
-              <%= link_to "新規登録", new_user_registration_path, class: "btn btn-light ml-3" %>
+              <%= link_to "新規登録", new_user_registration_path, class: "btn ml-3" %>
             </li>
             <li class="nav-item">
-              <%= link_to "ログイン", new_user_session_path, class: "btn btn-light ml-3" %>
+              <%= link_to "ログイン", new_user_session_path, class: "btn ml-3" %>
             </li>
           <% end %>
         </ul>

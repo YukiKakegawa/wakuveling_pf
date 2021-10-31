@@ -23,7 +23,7 @@ class Post < ApplicationRecord
   }
 
   def gooded_by?(user)
-    goods.where(user_id: user_id).exists?
+    goods.where(user_id: user.id).exists?
   end
 
   geocoded_by :address
