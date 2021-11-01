@@ -3,11 +3,7 @@
     <div class="form-group row">
       <div class="col-sm-5 text-right">
         <%= attachment_image_tag @user, :profile_image, size: "150x150", format: "jpeg", fallback: "no_image.jpg" %>
-          <div>
-            <%= link_to edit_user_path(@user), class: "btn btn-outline-secondary" do %>
-            <i class="fas fa-user-edit"></i>
-            <% end %>
-          </div>
+
       </div>
       <div class="col-sm-5">
         <div>
@@ -19,6 +15,11 @@
         <div>
           <%= @user.introduction %>
         </div>
+        <div>
+          <%= link_to edit_user_path(@user), class: "btn btn-outline-secondary w-25" do %>
+          <i class="fas fa-user-edit"></i>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
@@ -27,7 +28,7 @@
    <section class="row d-flex mx-1 ">
      <% @posts.each do |post| %>
         <div class="col-sm-4 mb-4">
-          <div class="card">
+          <div class="card ">
             <div class="card-body-post">
               <div class="card-image text-center mb-2">
                 <%= attachment_image_tag post, :image, size: "445x300", format: 'jpeg' %>
