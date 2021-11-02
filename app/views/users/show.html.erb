@@ -16,6 +16,9 @@
           <%= @user.introduction %>
         </div>
         <div>
+          <%= link_to favorites_path, class: "btn btn-outline-secondary w-25" do %>
+          <i class="fas fa-heart"></i>
+          <% end %>
           <%= link_to edit_user_path(@user), class: "btn btn-outline-secondary w-25" do %>
           <i class="fas fa-user-edit"></i>
           <% end %>

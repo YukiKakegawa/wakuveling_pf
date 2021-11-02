@@ -9,10 +9,13 @@ Rails.application.routes.draw do
 
   resources :users
 
+  resources :favorites, only: [:index]
+
   resources :posts do
     resources :post_comments, only:[:create,:destroy]
     resource :goods, only:[:create,:destroy]
-    resource :favorites, only:[:create,:destroy,:index]
+    resource :favorites, only:[:create,:destroy]
+
   end
 
 end
