@@ -1,0 +1,25 @@
+<div class="favorite-text text-center my-3">
+  <h2>お気に入り</h2>
+</div>
+
+ <div class="container-post mt-2">
+   <section class="row d-flex mx-1 ">
+     <% @favorite_list.each do |post| %>
+        <div class="col-4 mb-4">
+          <div class="card">
+            <div class="card-body-post">
+              <div class="card-image text-center mb-2">
+                <%= attachment_image_tag post, :image, size: "445x300", format: 'jpeg' %>
+              </div>
+                <div class="d-flex justify-content-around">
+                  <h5 class="card-title "><%= post.tourist_spot %></h5>
+                  <div class="card-text"><%= post.prefecture %></div>
+                    <%= link_to "詳細", post_path(post), class: "btn btn-secondary mb-1"  %>
+                </div>
+            </div>
+          </div>
+        </div>
+     <% end %>
+   </section>
+ </div>
+
