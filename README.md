@@ -1,24 +1,47 @@
-# README
+# 国内のおすすめ観光地　共有サイト　〜wakuveling〜
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## サイト概要
 
-* Ruby version
+・このアプリを使用することで、国内のおすすめ観光スポットを会員者同士で共有することができます。自分のおすすめ観光地を発信したり、逆に誰かが紹介てくれた場所をお気に入り登録にして、次回旅行先の候補先を見つけることができます。会員同士でいいねされた観光地はランキング形式でも閲覧が可能となっておりますので、みんなの人気スポットもすぐに調べることができます。
 
-* System dependencies
 
-* Configuration
 
-* Database creation
+### サイトテーマ
 
-* Database initialization
+・国内のおすすめ観光スポットをみんなで共有できるサイトです。
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+### テーマを選んだ理由
 
-* Deployment instructions
+・コロナ禍の前は皆で旅行して楽しい思い出を作れていたかと思いますが、以前の様に中々行けない現状があるかと思います。少しずつ収束してきている中で、今までの様にまた沢山旅行ができたらと思っています。そん中これからどこかへ旅行しようと検討する際に、皆でおすすめスポットを共有できるサイトがあるといいなと思いました。日本には自分の知らない素敵な場所がまだまだ沢山あると思っています。このサイトを通して、次はどこへ行こうとワクワクしながら沢山の人が旅行できるきっかけになればいいなと思いこのテーマにしました。
 
-* ...
+
+
+### ターゲットユーザ
+
+・旅行好きな人。次の旅行先を検討している人。
+
+### 主な利用シーン
+
+・国内旅行を検討しているが、どこへ行こうか迷っている時。 ・行く場所は決まっているが、追加でオススメ観光スポットを探したい時。
+
+
+## 設計書
+
+・ER図
+https://drive.google.com/file/d/1fSUAnxncxsqsYI745Rn_NWcaoG3oxwV0/view?usp=sharing
+
+## チャレンジ要素一覧
+
+<https://docs.google.com/spreadsheets/d/1E4Quehglf9PxM1XTE-ft2X5-hJ5dmoJhsI-UJlgzVmY/edit#gid=0>
+
+## 開発環境
+
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JS ライブラリ：jQuery
+- IDE：Cloud9
+
+
